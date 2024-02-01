@@ -87,3 +87,214 @@ Books
 - GET /api/book-detail/: Retrieve a list of all book details.
 - GET /api/book-detail/{id}/: Retrieve book detail by ID.
 - PUT /api/book-detail/{id}/:Update book detail by ID.
+
+
+
+Certainly! Below is a sample API documentation based on the provided data:
+
+---
+
+## Library Management System API Documentation with Example
+
+### Base URL: `https://your-api-base-url.com`
+
+## Users
+
+### 1. Create a New User
+
+- Endpoint: `/api/users/`
+- Method: POST
+- Request:**
+  ```json
+  {
+      "Name": "John",
+      "Email": "john@gmail.com",
+  }
+  ```
+- **Response:**
+  - Status: 201 Created
+  - Content:
+    ```json
+    {
+        "UserID": 1,
+        "Name": "John",
+        "Email": "john@gmail.com",
+        "MembershipDate": "2024-02-01"
+    }
+    ```
+
+### 2. List All Users
+
+- **Endpoint:** `/api/users/`
+- **Method:** GET
+- **Response:**
+  - Status: 200 OK
+  - Content:
+    ```json
+    [
+        {
+            "UserID": 1,
+            "Name": "John",
+            "Email": "john@gmail.com",
+            "MembershipDate": "2024-02-01"
+        }
+            / ... (other user objects)
+
+    ]
+    ```
+
+### 3. Get User by ID
+
+- **Endpoint:** `/api/users/{id}/`
+- **Method:** GET
+- **Response:**
+  - Status: 200 OK
+  - Content:
+    ```json
+    {
+        "UserID": 1,
+        "Name": "John",
+        "Email": "john@gmail.com",
+        "MembershipDate": "2024-02-01"
+    }
+    ```
+
+## Books
+
+### 1. Add a New Book
+
+- **Endpoint:** `/api/books/`
+- **Method:** POST
+- **Request:**
+  ```json
+  {
+      "Title": "Deep Work",
+      "ISBN": "979984",
+      "PublishedDate": "2023-08-01",
+      "Genre": "Self-help book"
+  }
+  ```
+- **Response:**
+  - Status: 201 Created
+  - Content:
+    ```json
+    {
+        "BookID": 1,
+        "Title": "Deep Work",
+        "ISBN": "979984",
+        "PublishedDate": "2023-08-01",
+        "Genre": "Self-help book"
+    }
+    ```
+
+### 2. List All Books
+
+- **Endpoint:** `/api/books/`
+- **Method:** GET
+- **Response:**
+  - Status: 200 OK
+  - Content:
+    ```json
+    [
+        {
+            "BookID": 1,
+            "Title": "Deep Work",
+            "ISBN": "979984",
+            "PublishedDate": "2023-08-01",
+            "Genre": "Self-help book"
+        }
+        / ... (other book objects)
+    ]
+    ```
+
+### 3. Get Book by ID
+
+- **Endpoint:** `/api/books/{id}/`
+- **Method:** GET
+- **Response:**
+  - Status: 200 OK
+  - Content:
+    ```json
+    {
+        "BookID": 1,
+        "Title": "Deep Work",
+        "ISBN": "979984",
+        "PublishedDate": "2023-08-01",
+        "Genre": "Self-help book"
+    }
+    ```
+
+### 4. Assign/Update Book Details
+
+- **Endpoint:** `/api/books/{id}/`
+- **Method:** PUT
+- **Request:**
+  ```json
+  {
+      "NumberOfPages": 300,
+      "Publisher": "Asmita Publication",
+      // ... (other book detail attributes)
+  }
+  ```
+- **Response:**
+  - Status: 200 OK
+  - Content:
+    ```json
+    {
+        "BookID": 1,
+        "Title": "Deep Work",
+        "DetailsID": 2,
+        "NumberOfPages": 300,
+        "Publisher": "Asmita Publication"
+    }
+    ```
+
+## BorrowedBooks
+
+### 1. Borrow a Book
+
+- **Endpoint:** `/api/borrow-book/`
+- **Method:** POST
+- **Request:**
+  ```json
+  {
+      "user": 2,
+      "book": 2,
+      "BorrowDate": "2024-02-01"
+  }
+  ```
+- **Response:**
+  - Status: 201 Borrowed
+
+### 2. Return a Book
+
+- **Endpoint:** `/api/return-book/`
+- **Method:** POST
+- **Request:**
+  ```json
+  {
+      "user": 2,
+      "book": 2
+  }
+  ```
+- **Response:**
+  - Status: 200 OK
+
+### 3. List All Borrowed Books
+
+- **Endpoint:** `/api/borrowed-books/`
+- **Method:** GET
+- **Response:**
+  - Status: 200 OK
+  - Content:
+    ```json
+    [
+        {
+            "user": 2,
+            "book": 2,
+            "BorrowDate": "2024-02-01"
+        }
+    ]
+    ```
+
+
