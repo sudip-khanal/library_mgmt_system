@@ -13,7 +13,7 @@ class User(models.Model):
     MembershipDate = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.Name
+        return f"{self.UserID} - {self.Name}"
 
 
 # Model representing books in the library
