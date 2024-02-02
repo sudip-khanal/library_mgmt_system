@@ -141,7 +141,12 @@ class BorrowBookApiView(APIView):
     serializer_class = BorrowBookserializer
 
     def post(self, request, *args, **kwargs):
-        user_id = request.data.get('UserID')
+          user_data = request.data.get('UserID')
+          try:
+            user_id = int(user_data.id)
+           except (ValueError, AttributeError):
+                return Response({'error': 'Invalid UserID format'}, status=status.HTTP_400_BAD_REQUEST)
+
         serializer = self.serializer_class(data=request.data, context={'request': request, 'user': user_id})
 
         try:
