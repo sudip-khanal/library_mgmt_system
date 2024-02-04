@@ -96,7 +96,7 @@ Certainly! Below is a sample API documentation based on the provided data:
 
 ## Library Management System API Documentation with Example
 
-### Base URL: `https://your-api-base-url.com`
+### Base URL: `http://127.0.0.1:8000/api/`
 
 ## Users
 
